@@ -100,8 +100,8 @@ Together, we can make the world a better place, one choice at a time. Join us in
 
 We would like to thank the following contributors for their hard work and dedication to bringing ECo-nnect to life:
 
-- **[Ahamad Mamun Nishar Miya](https://github.com/miyannishar)(https://www.linkedin.com/in/nishar-miya/)** 
-- **[Aastika Banstola](https://github.com/aastikab)(https://www.linkedin.com/in/aastika-/)** 
+- **[Ahamad Mamun Nishar Miya](https://github.com/miyannishar)** - [LinkedIn](https://www.linkedin.com/in/nishar-miya/)
+- **[Aastika Banstola](https://github.com/aastikab)** - [LinkedIn](https://www.linkedin.com/in/aastika-/)
 
 Thank you for being a part of this journey toward a more sustainable future!
 
