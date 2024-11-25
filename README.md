@@ -100,8 +100,10 @@ Together, we can make the world a better place, one choice at a time. Join us in
 
 Meet the amazing team behind ECo-nnect!
 
+# Meet the amazing team behind ECo-nnect!
+
 **<p align="center">Ahamad Mamun Nishar Miya</p>**
-   <p align="center">
+   <p align="left">
      <img src="NisharHeadshot.png" alt="Ahamad Mamun Nishar Miya's Picture" width="150">
    </p>
    <p align="center">
@@ -114,7 +116,7 @@ Meet the amazing team behind ECo-nnect!
    </p>
 
 **<p align="center">Aastika Banstola</p>**
-   <p align="center">
+   <p align="right">
      <img src="AastikaHeadshot.png" alt="Aastika Banstola's Picture" width="150">
    </p>
    <p align="center">
