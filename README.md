@@ -1,6 +1,7 @@
 # ECo-nnect
 
 ECo-nnect is a web app designed to make sustainability simple, accessible, and impactful. Inspired by the idea that small, conscious actions, when multiplied by millions, can transform the future of our planet, ECo-nnect helps users make eco-friendly choices that benefit both themselves and the environment.
+![ECo-nnect Logo](Logo.png)
 
 ## Inspiration
 
