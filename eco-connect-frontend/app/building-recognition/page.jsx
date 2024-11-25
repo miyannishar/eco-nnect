@@ -398,6 +398,12 @@ export default function BuildingRecognitionPage() {
     };
   }, [showCamera, stream]);
 
+  // Add this helper function at the top of your file
+  const getNutrientValue = (nutrientString) => {
+    const value = nutrientString.match(/\d+/);
+    return value ? parseInt(value[0]) : 0;
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4">
       <div className="max-w-3xl mx-auto">
@@ -677,11 +683,96 @@ export default function BuildingRecognitionPage() {
                               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                                 Nutritional Information
                               </h3>
-                              <ul className="list-disc list-inside text-gray-600 dark:text-gray-400">
-                                {prediction.nutritional_information.map((info, index) => (
-                                  <li key={index}>{info}</li>
-                                ))}
-                              </ul>
+                              <div className="mb-8">
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                                  Nutritional Information
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                  {/* Calories */}
+                                  <div className="space-y-2">
+                                    <div className="flex justify-between items-center">
+                                      <span className="text-gray-600 dark:text-gray-400">Calories</span>
+                                      <span className="font-semibold">{getNutrientValue(prediction.nutritional_information[1])}cal</span>
+                                    </div>
+                                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                      <div 
+                                        className="h-full bg-orange-500 rounded-full transition-all duration-500"
+                                        style={{ width: `${(getNutrientValue(prediction.nutritional_information[1]) / 2000) * 100}%` }}
+                                      ></div>
+                                    </div>
+                                    <span className="text-xs text-gray-500">% Daily Value based on 2000 cal diet</span>
+                                  </div>
+
+                                  {/* Carbohydrates */}
+                                  <div className="space-y-2">
+                                    <div className="flex justify-between items-center">
+                                      <span className="text-gray-600 dark:text-gray-400">Carbohydrates</span>
+                                      <span className="font-semibold">{getNutrientValue(prediction.nutritional_information[4])}g</span>
+                                    </div>
+                                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                      <div 
+                                        className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                                        style={{ width: `${(getNutrientValue(prediction.nutritional_information[4]) / 300) * 100}%` }}
+                                      ></div>
+                                    </div>
+                                    <span className="text-xs text-gray-500">% Daily Value based on 300g recommendation</span>
+                                  </div>
+
+                                  {/* Sugars */}
+                                  <div className="space-y-2">
+                                    <div className="flex justify-between items-center">
+                                      <span className="text-gray-600 dark:text-gray-400">Sugars</span>
+                                      <span className="font-semibold">{getNutrientValue(prediction.nutritional_information[5])}g</span>
+                                    </div>
+                                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                      <div 
+                                        className="h-full bg-red-500 rounded-full transition-all duration-500"
+                                        style={{ width: `${(getNutrientValue(prediction.nutritional_information[5]) / 50) * 100}%` }}
+                                      ></div>
+                                    </div>
+                                    <span className="text-xs text-gray-500">% Daily Value based on 50g recommendation</span>
+                                  </div>
+
+                                  {/* Other Nutrients Grid */}
+                                  <div className="grid grid-cols-2 gap-4">
+                                    <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                      <span className="text-sm text-gray-600 dark:text-gray-400">Protein</span>
+                                      <p className="font-semibold">{getNutrientValue(prediction.nutritional_information[6])}g</p>
+                                    </div>
+                                    <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                      <span className="text-sm text-gray-600 dark:text-gray-400">Fat</span>
+                                      <p className="font-semibold">{getNutrientValue(prediction.nutritional_information[2])}g</p>
+                                    </div>
+                                    <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                      <span className="text-sm text-gray-600 dark:text-gray-400">Sodium</span>
+                                      <p className="font-semibold">{getNutrientValue(prediction.nutritional_information[3])}mg</p>
+                                    </div>
+                                    <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                      <span className="text-sm text-gray-600 dark:text-gray-400">Serving</span>
+                                      <p className="font-semibold">355ml</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Allergens & Warnings */}
+                              {(prediction.allergen_information.length > 0 || prediction.cautions_and_warnings.length > 0) && (
+                                <div className="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg">
+                                  <h4 className="text-lg font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
+                                    Allergens & Warnings
+                                  </h4>
+                                  <ul className="space-y-2">
+                                    {[...prediction.allergen_information, ...prediction.cautions_and_warnings].map((warning, index) => (
+                                      <li key={index} className="flex items-center text-yellow-700 dark:text-yellow-300">
+                                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                        </svg>
+                                        {warning}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
                             </div>
                           </div>
 
