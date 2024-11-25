@@ -98,9 +98,8 @@ Together, we can make the world a better place, one choice at a time. Join us in
 
 ## Contributors
 
-Meet the amazing team behind ECo-nnect!
+Introducing the minds behind ECo-nnect's mission for a sustainable future!**
 
-# Meet the amazing team behind ECo-nnect!
 
 **<p align="center">Ahamad Mamun Nishar Miya</p>**
    <p align="center">
@@ -132,6 +131,6 @@ Meet the amazing team behind ECo-nnect!
 
 <p align="right"><a href="#readme-top">↑ Back to Top ↑</a></p>
 
-*<p align="left">Made with ❤️ for a sustainable future.</p>*
+*<p align="left">Empowering eco-friendly choices for a greener tomorrow.</p>*
 
 
