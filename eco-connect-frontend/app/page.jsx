@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import LoginForm from '@/components/LoginForm';
 import SignupForm from '@/components/SignupForm';
+import Image from 'next/image';
 
 const FISK_CENTER = {
   lat: 36.1676,
@@ -58,11 +59,20 @@ export default function Home() {
       <div className="relative z-20 min-h-screen flex flex-col items-center justify-center px-4">
         {/* Hero Section */}
         <div className="text-center mb-12 space-y-6 max-w-3xl mx-auto">
+          <div className="mb-6">
+            <Image
+              src="/images/econnect.jpeg"
+              alt="ECo-nnect Logo"
+              width={200}
+              height={200}
+              className="mx-auto"
+            />
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold text-white animate-fade-in">
-            Welcome to Naksha
+            Welcome to ECo-nnect
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 animate-fade-in-delay">
-            Your AI-powered campus navigation assistant
+          Empowering simple, impactful eco-friendly choices for a sustainable future.
           </p>
         </div>
 
