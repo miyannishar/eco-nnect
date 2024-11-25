@@ -98,7 +98,7 @@ Together, we can make the world a better place, one choice at a time. Join us in
 
 ## Contributors
 
-Introducing the minds behind ECo-nnect's mission for a sustainable future!**
+Introducing the minds behind ECo-nnect's mission for a sustainable future!
 
 
 **<p align="center">Ahamad Mamun Nishar Miya</p>**
