@@ -102,11 +102,11 @@ Meet the amazing team behind ECo-nnect!
 
 # Meet the amazing team behind ECo-nnect!
 
-**<p align="center">Ahamad Mamun Nishar Miya</p>**
+**<p align="left">Ahamad Mamun Nishar Miya</p>**
    <p align="left">
-     <img src="NisharHeadshot.png" alt="Ahamad Mamun Nishar Miya's Picture" width="150">
+     <img src="NisharHeadshot.png" alt="Ahamad Mamun Nishar Miya's Picture" width="250">
    </p>
-   <p align="center">
+   <p align="left">
      <a href="https://www.linkedin.com/in/nishar-miya/">
        <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin" alt="LinkedIn">
      </a>
@@ -115,11 +115,11 @@ Meet the amazing team behind ECo-nnect!
      </a>
    </p>
 
-**<p align="center">Aastika Banstola</p>**
+**<p align="right">Aastika Banstola</p>**
    <p align="right">
-     <img src="AastikaHeadshot.png" alt="Aastika Banstola's Picture" width="150">
+     <img src="AastikaHeadshot.png" alt="Aastika Banstola's Picture" width="250">
    </p>
-   <p align="center">
+   <p align="right">
      <a href="https://www.linkedin.com/in/aastika-/">
        <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin" alt="LinkedIn">
      </a>
