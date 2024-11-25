@@ -102,11 +102,11 @@ Meet the amazing team behind ECo-nnect!
 
 # Meet the amazing team behind ECo-nnect!
 
-**<p align="left">Ahamad Mamun Nishar Miya</p>**
-   <p align="left">
+**<p align="center">Ahamad Mamun Nishar Miya</p>**
+   <p align="center">
      <img src="NisharHeadshot.png" alt="Ahamad Mamun Nishar Miya's Picture" width="250">
    </p>
-   <p align="left">
+   <p align="center">
      <a href="https://www.linkedin.com/in/nishar-miya/">
        <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin" alt="LinkedIn">
      </a>
