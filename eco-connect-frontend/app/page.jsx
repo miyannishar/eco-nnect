@@ -2,15 +2,9 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import LoginForm from '@/components/LoginForm';
 import SignupForm from '@/components/SignupForm';
 import Image from 'next/image';
-
-const FISK_CENTER = {
-  lat: 36.1676,
-  lng: -86.8083
-};
 
 export default function Home() {
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -29,31 +23,19 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative">
-      {/* Background Map */}
-      <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-        <GoogleMap
-          mapContainerStyle={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 0
-          }}
-          center={FISK_CENTER}
-          zoom={17}
-          options={{
-            disableDefaultUI: true,
-            mapTypeId: 'satellite',
-            tilt: 45,
-            heading: 45,
-            gestureHandling: 'none'
-          }}
-        />
-      </LoadScript>
+      {/* Background Video */}
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/environment.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-10" />
+      {/* Gradient Overlay - adjusted opacity for better video visibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 z-10" />
 
       {/* Main Content */}
       <div className="relative z-20 min-h-screen flex flex-col items-center justify-center px-4">
@@ -61,7 +43,7 @@ export default function Home() {
         <div className="text-center mb-12 space-y-6 max-w-3xl mx-auto">
           <div className="mb-6">
             <Image
-              src="/images/econnect.jpeg"
+              src="/images/Logo.jpeg"
               alt="ECo-nnect Logo"
               width={200}
               height={200}
@@ -77,40 +59,25 @@ export default function Home() {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-          <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl hover:bg-white/20 transition-all duration-300 cursor-pointer">
-            <div className="text-blue-400 mb-4">
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Interactive Maps</h3>
-            <p className="text-gray-300">Navigate campus with real-time directions and building information</p>
-          </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
           <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl hover:bg-white/20 transition-all duration-300 cursor-pointer">
             <div className="text-green-400 mb-4">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Building Recognition</h3>
-            <p className="text-gray-300">Instantly identify buildings using AI-powered image recognition</p>
+            <h3 className="text-xl font-semibold text-white mb-2">Food Analysis</h3>
+            <p className="text-gray-300">Upload food images to get instant nutritional analysis and eco-friendly alternatives</p>
           </div>
 
           <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl hover:bg-white/20 transition-all duration-300 cursor-pointer">
-            <div className="text-amber-400 mb-4">
+            <div className="text-blue-400 mb-4">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">About Fisk</h3>
-            <p className="text-gray-300">Explore Fisk University's rich history, historic buildings, and cultural heritage</p>
+            <h3 className="text-xl font-semibold text-white mb-2">Health Reports</h3>
+            <p className="text-gray-300">Securely upload and manage your health reports with easy tracking and sharing options</p>
           </div>
         </div>
 

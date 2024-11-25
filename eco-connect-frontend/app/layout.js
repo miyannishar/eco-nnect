@@ -6,7 +6,7 @@ import Script from 'next/script';
 import ErrorBoundary from '@/components/ErrorBoundary';
 
 export const metadata = {
-  title: 'Naksha - Campus Navigation',
+  title: 'ECo-nnect',
   description: 'AI-powered campus navigation for Fisk University',
 };
 

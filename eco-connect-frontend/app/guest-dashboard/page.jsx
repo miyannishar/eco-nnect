@@ -1,18 +1,19 @@
 "use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { 
-  MapIcon, 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  MapIcon,
   CameraIcon,
   UserCircleIcon,
   ArrowRightIcon,
   SunIcon,
   MoonIcon,
   QuestionMarkCircleIcon,
-} from '@heroicons/react/24/outline';
+} from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 export default function GuestDashboard() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -20,7 +21,7 @@ export default function GuestDashboard() {
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
+    document.documentElement.classList.toggle("dark");
   };
 
   const containerVariants = {
@@ -28,47 +29,59 @@ export default function GuestDashboard() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: { opacity: 1, scale: 1 },
-    hover: { 
+    hover: {
       scale: 1.02,
-      transition: { duration: 0.2 }
-    }
+      transition: { duration: 0.2 },
+    },
   };
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'dark' : ''} bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900`}>
+    <div
+      className={`min-h-screen ${
+        isDarkMode ? "dark" : ""
+      } bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900`}
+    >
       {/* Sticky Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg shadow-sm">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between h-16">
-            <div className="flex items-center space-x-4">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Naksha
-              </h1>
+            <div className="flex items-center">
+              <Image
+                src="/images/econnect.jpeg"
+                alt="ECo-nnect Logo"
+                width={100}
+                height={40}
+                className="object-contain h-10 w-auto"
+                priority
+              />
             </div>
             <div className="flex items-center space-x-4">
-              <button 
+              <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 aria-label="Toggle theme"
               >
-                {isDarkMode ? 
-                  <SunIcon className="h-6 w-6 text-gray-400" /> : 
+                {isDarkMode ? (
+                  <SunIcon className="h-6 w-6 text-gray-400" />
+                ) : (
                   <MoonIcon className="h-6 w-6 text-gray-600" />
-                }
+                )}
               </button>
               <div className="flex items-center">
                 <UserCircleIcon className="h-8 w-8 text-gray-400" />
-                <span className="ml-2 text-gray-600 dark:text-gray-300">Guest User</span>
+                <span className="ml-2 text-gray-600 dark:text-gray-300">
+                  Guest User
+                </span>
               </div>
               <button
-                onClick={() => router.push('/')}
+                onClick={() => router.push("/")}
                 className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
               >
                 Sign In
@@ -79,7 +92,7 @@ export default function GuestDashboard() {
       </nav>
 
       {/* Main Content */}
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 py-8"
         initial="hidden"
         animate="visible"
@@ -87,7 +100,7 @@ export default function GuestDashboard() {
       >
         {/* Welcome Message */}
         <div className="text-center mb-12">
-          <motion.h1 
+          <motion.h1
             className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-blue-900 dark:from-white dark:to-blue-400 bg-clip-text text-transparent mb-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,7 +108,7 @@ export default function GuestDashboard() {
           >
             Welcome, Guest!
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-xl text-gray-600 dark:text-gray-400"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -106,7 +119,7 @@ export default function GuestDashboard() {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Campus Map Card */}
           <motion.div
             variants={cardVariants}
@@ -114,16 +127,17 @@ export default function GuestDashboard() {
             className="group relative bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden h-80"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <Link href="/map" className="block p-8 h-full">
+            <Link href="/building-recognition" className="block p-8 h-full">
               <div className="flex items-center justify-between mb-6">
                 <MapIcon className="h-12 w-12 text-blue-500" />
                 <ArrowRightIcon className="h-6 w-6 text-gray-400 transform group-hover:translate-x-1 transition-transform" />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                Campus Map
+                Food Analysis
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
-                Interactive map of Fisk University campus with real-time navigation
+                Upload food images to get instant nutritional analysis and
+                eco-friendly alternatives
               </p>
             </Link>
           </motion.div>
@@ -134,6 +148,11 @@ export default function GuestDashboard() {
             whileHover="hover"
             className="group relative bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden h-80"
           >
+            {/* Coming Soon Tag */}
+            <div className="absolute top-4 right-4 bg-yellow-500 text-black text-sm font-semibold px-3 py-1 rounded-full z-10">
+              Coming Soon
+            </div>
+            
             <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             <Link href="/building-recognition" className="block p-8 h-full">
               <div className="flex items-center justify-between mb-6">
@@ -141,43 +160,11 @@ export default function GuestDashboard() {
                 <ArrowRightIcon className="h-6 w-6 text-gray-400 transform group-hover:translate-x-1 transition-transform" />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                Building Recognition
+                Health Reports
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
-                Identify campus buildings using AI-powered image recognition
-              </p>
-            </Link>
-          </motion.div>
-
-          {/* About Fisk Card */}
-          <motion.div
-            variants={cardVariants}
-            whileHover="hover"
-            className="group relative bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden h-80"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <Link href="/about-fisk" className="block p-8 h-full">
-              <div className="flex items-center justify-between mb-6">
-                <svg 
-                  className="h-12 w-12 text-amber-600" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={1.5} 
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  />
-                </svg>
-                <ArrowRightIcon className="h-6 w-6 text-gray-400 transform group-hover:translate-x-1 transition-transform" />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                About Fisk
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-lg">
-                Explore Fisk University's rich history, historic buildings, and cultural heritage
+                Securely upload and manage your health reports with easy
+                tracking and sharing options
               </p>
             </Link>
           </motion.div>
@@ -185,7 +172,7 @@ export default function GuestDashboard() {
       </motion.div>
 
       {/* Help Button */}
-      <button 
+      <button
         className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
         aria-label="Get help"
       >
@@ -193,4 +180,4 @@ export default function GuestDashboard() {
       </button>
     </div>
   );
-} 
+}

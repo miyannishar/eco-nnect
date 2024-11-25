@@ -26,6 +26,19 @@ export default function BuildingRecognitionPage() {
   const [countdown, setCountdown] = useState(null);
   const mediaRecorderRef = useRef(null);
   const chunksRef = useRef([]);
+  const [selectedDisease, setSelectedDisease] = useState('none');
+
+  // Add diseases list
+  const diseases = [
+    { id: 'none', name: 'No Medical Conditions' },
+    { id: 'diabetes', name: 'Diabetes' },
+    { id: 'hypertension', name: 'Hypertension' },
+    { id: 'celiac', name: 'Celiac Disease' },
+    { id: 'lactose', name: 'Lactose Intolerance' },
+    { id: 'peanut', name: 'Peanut Allergy' },
+    { id: 'shellfish', name: 'Shellfish Allergy' },
+    // Add more diseases as needed
+  ];
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -89,7 +102,7 @@ export default function BuildingRecognitionPage() {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      const apiEndpoint = `http://localhost:8000/eco-agent/product-details?userMedicalAilments=${userMedicalAilments}`;
+      const apiEndpoint = `http://localhost:8000/eco-agent/product-details?userMedicalAilments=${selectedDisease}`;
       console.log('Sending request to API:', apiEndpoint);
 
       const response = await fetch(apiEndpoint, {
@@ -399,10 +412,10 @@ export default function BuildingRecognitionPage() {
             Back to Dashboard
           </button>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Building Recognition
+            Food Analysis
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Choose how you'd like to identify a building
+            Choose which do you want to analyze
           </p>
         </div>
 
@@ -422,7 +435,7 @@ export default function BuildingRecognitionPage() {
                 Use Camera
               </h2>
               <p className="text-gray-600 dark:text-gray-400 text-center">
-                Take a photo of a building in real-time using your device's camera
+                Take a photo of a food item to get all the analysis
               </p>
             </button>
 
@@ -539,6 +552,30 @@ export default function BuildingRecognitionPage() {
           // Upload Section
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+              {/* Disease Selection Dropdown */}
+              <div className="mb-6">
+                <label 
+                  htmlFor="disease-select" 
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
+                  Select Medical Condition (if any)
+                </label>
+                <select
+                  id="disease-select"
+                  value={selectedDisease}
+                  onChange={(e) => setSelectedDisease(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md 
+                    shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 
+                    dark:text-white"
+                >
+                  {diseases.map((disease) => (
+                    <option key={disease.id} value={disease.id}>
+                      {disease.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               {!previewUrl ? (
                 // Upload Zone
                 <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-12">
