@@ -115,11 +115,11 @@ Meet the amazing team behind ECo-nnect!
      </a>
    </p>
 
-**<p align="right">Aastika Banstola</p>**
-   <p align="right">
+**<p align="center">Aastika Banstola</p>**
+   <p align="center">
      <img src="AastikaHeadshot.png" alt="Aastika Banstola's Picture" width="250">
    </p>
-   <p align="right">
+   <p align="center">
      <a href="https://www.linkedin.com/in/aastika-/">
        <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin" alt="LinkedIn">
      </a>
