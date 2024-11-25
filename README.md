@@ -23,35 +23,60 @@ ECo-nnect is your companion in making eco-conscious decisions that contribute to
 
 ## How We Built It
 
-ECo-nnect was developed using a combination of modern technologies and frameworks to create a scalable, intuitive, and user-friendly web application.
+ECo-nnect was developed using a modern tech stack, emphasizing scalability, performance, and user experience.
 
 ### Technical Architecture
 
-#### Frontend Technologies:
-- **React.js**: For building a dynamic and responsive user interface.
-- **Material-UI**: For consistent, user-friendly design components.
+#### Frontend Technologies
+- **Next.js 14**: For building a performant, server-side rendered React application.
+- **TailwindCSS**: For responsive, utility-first styling with dark mode support.
+- **Framer Motion**: For smooth, professional animations and transitions.
+- **Heroicons**: For consistent, accessible iconography.
+- **Next Auth**: For secure authentication and session management.
 
-#### Backend & Web Services:
-- **Node.js with Express.js**: For robust backend services and APIs.
-- **FastAPI**: For efficient handling of RESTful API endpoints.
-- **MongoDB Atlas**: Scalable cloud database for storing user data, sustainability metrics, and DIY project ideas.
+#### Backend Services
+- **Python Backend**: Custom backend service for data processing and analysis.
+- **Google Gemini AI**: For advanced image analysis and content generation.
+- **Tavily API**: For real-time contextual information gathering.
+- **Firebase**: For secure data storage and real-time updates.
 
-#### Data Processing & AI Models:
-- **ScrapeGraph.AI**: For extracting sustainability data from online sources and structuring it.
-- **Hugging Face Transformers**: For analyzing product sustainability metrics and text embedding.
-- **Neo4j**: Creating a knowledge graph connecting products, materials, and their environmental impact.
+### Key Features Implementation
 
-#### Additional Services:
-- **Firebase**: Real-time updates and user activity tracking.
-- **Twilio**: For sending notifications about eco-friendly deals and tips.
-- **Streamlit (Planned)**: For previewing DIY projects and providing community analytics.
+#### Food Analysis System
+- Real-time image capture using the Web Camera API.
+- Custom image processing pipeline for food recognition.
+- Integrated health report analysis for personalized recommendations.
+- Support for both file upload and direct camera capture.
 
-#### Authentication & Security:
-- **JWT**: For secure user authentication and data transactions.
-- **OAuth 2.0**: For enabling third-party logins and enhancing user experience.
+#### Health Integration
+- Secure health report upload and storage system.
+- Medical condition tracking with support for various ailments.
+- Personalized eco-friendly product recommendations based on health data.
+- HIPAA-compliant data handling and storage.
 
-ECo-nnect is built with scalability and user engagement in mind, encouraging meaningful actions toward sustainability.
+#### User Experience
+- Responsive design that works across all device sizes.
+- Dark mode support for better accessibility.
+- Progressive Web App (PWA) capabilities for offline access.
+- Error boundary implementation for graceful error handling.
 
+### Development Practices
+- **Component-based architecture**: Ensures maintainable and reusable code.
+- **CSS Modules and Tailwind**: For scoped and efficient styling.
+- **Environment-based configuration management**: Simplifies deployment across environments.
+- **Git-based version control**: Ensures structured development and collaboration.
+
+### Security Measures
+- **JWT-based authentication**: Ensures secure user sessions.
+- **Secure environment variable management**: Protects sensitive data.
+- **Protected API routes**: Limits unauthorized access.
+- **Input validation and sanitization**: Prevents security vulnerabilities.
+- **CORS policy implementation**: Ensures safe cross-origin resource sharing.
+
+### Scalability and Performance
+ECo-nnect is built with scalability in mind, allowing for future feature additions while maintaining performance and security standards.
+
+---
 ## Challenges We Ran Into
 
 During development, we encountered a few challenges that helped refine our approach:
