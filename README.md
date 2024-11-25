@@ -73,7 +73,6 @@ ECo-nnect was developed using a modern tech stack, emphasizing scalability, perf
 - **Input validation and sanitization**: Prevents security vulnerabilities.
 - **CORS policy implementation**: Ensures safe cross-origin resource sharing.
 
-### Scalability and Performance
 ECo-nnect is built with scalability in mind, allowing for future feature additions while maintaining performance and security standards.
 
 ---
